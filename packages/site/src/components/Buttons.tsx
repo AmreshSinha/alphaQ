@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { MetamaskState } from '../hooks';
 import { ReactComponent as FlaskFox } from '../assets/flask_fox.svg';
 import { shouldDisplayReconnectButton } from '../utils';
+import { BigNumber, Contract, providers, utils } from "ethers";
 
 const Link = styled.a`
   display: flex;
@@ -96,6 +97,10 @@ export const ReconnectButton = (props: ComponentProps<typeof Button>) => {
 
 export const SendHelloButton = (props: ComponentProps<typeof Button>) => {
   return <Button {...props}>Send message</Button>;
+};
+
+export const MintSomeMoney = (props: ComponentProps<typeof Button>) => {
+  return <Button {...props}>Mint Token</Button>;
 };
 
 export const HeaderButtons = ({

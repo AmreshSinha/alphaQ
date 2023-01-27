@@ -12,8 +12,10 @@ import {
   InstallFlaskButton,
   ReconnectButton,
   SendHelloButton,
+  MintSomeMoney,
   Card,
 } from '../components';
+import { useState } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -100,6 +102,7 @@ const ErrorMessage = styled.div`
 `;
 
 const Index = () => {
+  const [userBalance, setUserBalance] = useState(0);
   const [state, dispatch] = useContext(MetaMaskContext);
 
   const handleConnectClick = async () => {
@@ -118,6 +121,15 @@ const Index = () => {
   };
 
   const handleSendHelloClick = async () => {
+    try {
+      await sendHello();
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: MetamaskActions.SetError, payload: e });
+    }
+  };
+
+  const handleMintMoneyClick = async () => {
     try {
       await sendHello();
     } catch (e) {
@@ -183,6 +195,25 @@ const Index = () => {
             disabled={!state.installedSnap}
           />
         )}
+        <Card
+          content={{
+            title: 'Yeh Old Dapp hai!',
+            description:
+              'Idhar user aayega. Once he mints the thing by clicking on the below uske immediate baad popup aana chahiye',
+            button: (
+              <MintSomeMoney
+                onClick={handleMintMoneyClick}
+                disabled={!state.installedSnap}
+              />
+            ),
+          }}
+          disabled={!state.installedSnap}
+          fullWidth={
+            state.isFlask &&
+            Boolean(state.installedSnap) &&
+            !shouldDisplayReconnectButton(state.installedSnap)
+          }
+        />
         <Card
           content={{
             title: 'Send Hello message',
