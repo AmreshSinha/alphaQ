@@ -13,6 +13,15 @@ export const getSnaps = async (): Promise<GetSnapsResponse> => {
 };
 
 /**
+ * Connect to metamask
+ */
+export const connectMetamask = async () => {
+  await window.ethereum.request({
+    method: 'eth_requestAccounts'
+  })
+}
+
+/**
  * Connect a snap to MetaMask.
  *
  * @param snapId - The ID of the snap.
@@ -61,6 +70,22 @@ export const getSnap = async (version?: string): Promise<Snap | undefined> => {
  */
 
 export const sendHello = async () => {
+  await window.ethereum.request({
+    method: 'wallet_invokeSnap',
+    params: [
+      defaultSnapOrigin,
+      {
+        method: 'hello',
+      },
+    ],
+  });
+};
+
+/**
+ * Invoke ad method
+ */
+
+export const showAds = async () => {
   await window.ethereum.request({
     method: 'wallet_invokeSnap',
     params: [

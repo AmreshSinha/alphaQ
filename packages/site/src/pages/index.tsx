@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
   connectSnap,
+  connectMetamask,
   getSnap,
   sendHello,
+  showAds,
   shouldDisplayReconnectButton,
 } from '../utils';
 import {
@@ -16,6 +18,9 @@ import {
   Card,
 } from '../components';
 import { useState } from 'react';
+import detectEthereumProvider from '@metamask/detect-provider';
+import { BigNumber, Contract, providers } from 'ethers';
+import { TOKENADDRESS, TOKENABI } from '../constants'
 
 const Container = styled.div`
   display: flex;
@@ -102,11 +107,13 @@ const ErrorMessage = styled.div`
 `;
 
 const Index = () => {
+  const zero = BigNumber.from("0");
   const [userBalance, setUserBalance] = useState(0);
   const [state, dispatch] = useContext(MetaMaskContext);
 
   const handleConnectClick = async () => {
     try {
+      await connectMetamask();
       await connectSnap();
       const installedSnap = await getSnap();
 
@@ -129,14 +136,42 @@ const Index = () => {
     }
   };
 
+  const getProviderOrSigner = async (needSigner = false) => {
+    if (window.ethereum) {
+    const provider = await detectEthereumProvider();
+    const web3Provider = new providers.Web3Provider(provider);
+
+    const { chainId } = await web3Provider.getNetwork();
+    if (chainId !== 80001) {
+      window.alert("Change the network to Mumbai");
+      throw new Error("Change network to Mumbai");
+    }
+
+    if (needSigner) {
+      const signer = web3Provider.getSigner();
+      console.log(signer)
+      return signer;
+    }
+    return web3Provider;
+  }
+  };
+
   const handleMintMoneyClick = async () => {
     try {
-      await sendHello();
+      const signer = await getProviderOrSigner(true);
+      console.log("Signer", signer)
+      console.log("TokenAdd", TOKENADDRESS)
+      const tokenContract = new Contract(TOKENADDRESS, TOKENABI, signer);
+      const address = await signer.getAddress();
+      const tx = await tokenContract.mint("1000000000000000000");
+      await tx.wait();
+      await showAds();
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });
     }
   };
+
 
   return (
     <Container>

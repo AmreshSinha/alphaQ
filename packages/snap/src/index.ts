@@ -1,5 +1,17 @@
 import { OnRpcRequestHandler } from '@metamask/snap-types';
 
+var adsMap = new Map<string, Object>([
+  ['0x1', {
+    heading: 'Its an add 1',
+  }],
+  ['0x2', {
+    heading: 'Its an add 1',
+  }],
+  ['0x3', {
+    heading: 'Its an add 1',
+  }],
+]);
+
 /**
  * Get a message from the origin. For demonstration purposes only.
  *
@@ -8,6 +20,15 @@ import { OnRpcRequestHandler } from '@metamask/snap-types';
  */
 export const getMessage = (originString: string): string =>
   `Hello, ${originString}!`;
+
+/**
+ * Set random ad for each snap call
+ */
+export const getRandomAd = (): {heading: string;} => {
+  let adsLen = Object.keys(adsMap).length;
+  const resKey = Object.keys(adsMap)[Math.floor(Math.random() * adsLen)];
+  return adsMap.get(resKey);
+}
 
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
@@ -29,9 +50,9 @@ export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
           {
             prompt: getMessage(origin),
             description:
-              'This custom confirmation is just for display purposes.',
+              'Heading',
             textAreaContent:
-              'But you can edit the snap source code to make it do something, if you want to!',
+              `Its an main add ${getRandomAd().heading}`,
           },
         ],
       });

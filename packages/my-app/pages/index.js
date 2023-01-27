@@ -14,7 +14,7 @@ export default function Home() {
   const [walletConnected, setWalletConnected] = useState(false);
   const web3ModalRef = useRef();
 
-  
+
   const getProviderOrSigner = async (needSigner = false) => {
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
@@ -26,11 +26,14 @@ export default function Home() {
     }
 
     if (needSigner) {
+      console.log("web3Provider", web3Provider)
       const signer = web3Provider.getSigner();
+      console.log("Signer:", signer)
       return signer;
     }
     return web3Provider;
   };
+
   const connectWallet = async () => {
     try {
       await getProviderOrSigner();
@@ -42,6 +45,7 @@ export default function Home() {
 
   const mintMoney = async()=>{
     const signer = await getProviderOrSigner(true);
+    console.log("Signer", signer)
     const tokenContract = new Contract(TOKENADDRESS, TOKENABI, signer);
     const address = await signer.getAddress();
     const tx = await tokenContract.mint("1000000000000000000");
@@ -164,5 +168,5 @@ export default function Home() {
     }}><button className='mint' onClick={mintBiches()}>Mint Some Money, u broke biches</button></div>
   )
 }
- * 
+ *
  */
