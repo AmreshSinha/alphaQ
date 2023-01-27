@@ -23,6 +23,7 @@
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!**/CHANGELOG.md' '**/*.yml' --ignore-path .gitignore",
     "start": "yarn workspaces foreach --parallel --interlaced --verbose run start",
+    "dev": "concurrently 'yarn workspace snap start' 'yarn workspace my-app dev'",
     "test": "echo \"TODO\""
   },
   "devDependencies": {
@@ -46,5 +47,8 @@
   "packageManager": "yarn@3.2.1",
   "engines": {
     "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
   }
 }
