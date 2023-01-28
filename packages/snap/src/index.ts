@@ -24,10 +24,10 @@ export const getMessage = (originString: string): string =>
 /**
  * Set random ad for each snap call
  */
-export const getRandomAd = (): {heading: string;} => {
-  let adsLen = Object.keys(adsMap).length;
-  const resKey = Object.keys(adsMap)[Math.floor(Math.random() * adsLen)];
-  return adsMap.get(resKey);
+export function getRandomAd() {
+  let adsLen = adsMap.size;
+  const resKey = Array.from(adsMap.keys())[Math.floor(Math.random() * adsLen)];
+  return adsMap.get(resKey) as {heading: string};
 }
 
 /**
