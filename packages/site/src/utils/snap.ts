@@ -94,6 +94,12 @@ export const showAds = async () => {
         method: 'hello',
       },
     ],
+  })
+  .then(res => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
   });
 };
 
