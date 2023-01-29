@@ -1,19 +1,6 @@
 import { OnRpcRequestHandler } from '@metamask/snap-types';
 import {nftAddress, nftAbi} from "./constants";
 import { Contract, providers } from 'ethers';
-import detectEthereumProvider from '@metamask/detect-provider';
-import {ethers} from "ethers"
-var adsMap = new Map<string, Object>([
-  ['0x1', {
-    heading: 'Its an add 1',
-  }],
-  ['0x2', {
-    heading: 'Its an add 1',
-  }],
-  ['0x3', {
-    heading: 'Its an add 1',
-  }],
-]);
 
 /**
  * Get a message from the origin. For demonstration purposes only.
@@ -36,17 +23,16 @@ export const getMessage = (originString: string): string =>
  * }
  */
 export async function getRandomAd() {
-  // const provider = await detectEthereumProvider();
   const provider = new providers.JsonRpcProvider("https://quiet-damp-brook.matic-testnet.discover.quiknode.pro/c73a64e337a259e2a9e69e3aec35a64c753bc426/");
-  // const web3Provider = new providers.Web3Provider(provider);
   const nftContract = new Contract(nftAddress, nftAbi, provider);
   const ntemp = await nftContract.count();
   const n = parseInt((ntemp).toString());
   const idx = (Math.floor(Math.random()*n)).toString();
   const ipfsUrl = await nftContract.tokenURI(idx);
+  const contentId = ipfsUrl.split("/").pop();
   const response = await fetch(ipfsUrl);
   const json = await response.json();
-  return json
+  return [json, contentId];
 }
 
 /**
@@ -64,6 +50,16 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
   switch (request.method) {
     case 'hello':
       const randomAd = await getRandomAd();
+
+      // Storing contentId in state
+      const state = {
+        contentId: randomAd[1],
+      }
+      await wallet.request({
+        method: 'snap_manageState',
+        params: ['update', state]
+      })
+
       return wallet.request({
         method: 'snap_confirm',
         params: [
@@ -72,7 +68,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
             description:
               'Heading',
             textAreaContent:
-              `Its an main add ${randomAd.image}`,
+              `Its an main add ${randomAd[0].image}`,
           },
         ],
       });
