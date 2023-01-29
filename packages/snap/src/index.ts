@@ -15,29 +15,6 @@ var adsMap = new Map<string, Object>([
   }],
 ]);
 
-// const MUMBAI_PROVIDER = new JsonRpcProvider("https://quiet-damp-brook.matic-testnet.discover.quiknode.pro/c73a64e337a259e2a9e69e3aec35a64c753bc426/");
-// const nftContract = new Contract(nftAddress, nftAbi, MUMBAI_PROVIDER);
-
-
-/**
- * import { JsonRpcProvider, Contract } from 'ethers';
-import { ethers } from 'ethers';
-
-const MUMBAI_PROVIDER = new JsonRpcProvider("https://quiet-damp-brook.matic-testnet.discover.quiknode.pro/c73a64e337a259e2a9e69e3aec35a64c753bc426/");
-const nftContract = new Contract(nftAddress, nftAbi, MUMBAI_PROVIDER);
-
-async function getNFTData(): Promise<any> {
-  const ntemp = await nftContract.count();
-  const n = parseInt((ntemp).toString());
-  const idx = (Math.floor(Math.random()*n)).toString();
-  const ipfsUrl = await nftContract.tokenURI(idx);
-  const response = await fetch(ipfsUrl);
-  const json = await response.json();
-  return json.attributes;
-}
-
- */
-
 /**
  * Get a message from the origin. For demonstration purposes only.
  *
@@ -49,33 +26,27 @@ export const getMessage = (originString: string): string =>
 
 /**
  * Set random ad for each snap call
+ * {
+ *   attributes: [
+ *     { trait_type: 'Background', value: 'Blue' },
+ *   ],
+ *   description: 'This is a test NFT',
+ *   image: 'aweiofujslkufqWEAVIODKMLIAK',
+ *   name: 'Test NFT'
+ * }
  */
 export async function getRandomAd() {
-  const provider = await detectEthereumProvider();
-  const web3Provider = new providers.Web3Provider(provider);
-  const nftContract = new Contract(nftAddress, nftAbi, web3Provider);
+  // const provider = await detectEthereumProvider();
+  const provider = new providers.JsonRpcProvider("https://quiet-damp-brook.matic-testnet.discover.quiknode.pro/c73a64e337a259e2a9e69e3aec35a64c753bc426/");
+  // const web3Provider = new providers.Web3Provider(provider);
+  const nftContract = new Contract(nftAddress, nftAbi, provider);
   const ntemp = await nftContract.count();
   const n = parseInt((ntemp).toString());
   const idx = (Math.floor(Math.random()*n)).toString();
   const ipfsUrl = await nftContract.tokenURI(idx);
   const response = await fetch(ipfsUrl);
   const json = await response.json();
-  return "asukdasudb"
-  // const MUMBAI_PROVIDER=new ethers.providers.JsonRpcProvider("https://quiet-damp-brook.matic-testnet.discover.quiknode.pro/c73a64e337a259e2a9e69e3aec35a64c753bc426/");
-  // const nftContract  = new Contract(nftAddress, nftAbi, MUMBAI_PROVIDER);
-  // const ntemp = await nftContract.count();
-  // // console.log(ntemp)
-  // const n = parseInt((ntemp).toString());
-  // const idx = (Math.floor(Math.random()*n)).toString();
-  // const ipfsUrl = await nftContract.tokenURI(idx);
-  // const response = await fetch(ipfsUrl);
-  // const json = await response.json();
-  // const attr = json.attributes;
-  // return "kasbjkdjabs";
-  ///AMRESH wrote the below thing
-  // let adsLen = adsMap.size;
-  // const resKey = Array.from(adsMap.keys())[Math.floor(Math.random() * adsLen)];
-  // return adsMap.get(resKey) as {heading: string};
+  return json
 }
 
 /**
@@ -89,9 +60,10 @@ export async function getRandomAd() {
  * @throws If the request method is not valid for this snap.
  * @throws If the `snap_confirm` call failed.
  */
-export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
+export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => {
   switch (request.method) {
     case 'hello':
+      const randomAd = await getRandomAd();
       return wallet.request({
         method: 'snap_confirm',
         params: [
@@ -100,7 +72,7 @@ export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
             description:
               'Heading',
             textAreaContent:
-              `Its an main add ${getRandomAd()}`,
+              `Its an main add ${randomAd.image}`,
           },
         ],
       });
