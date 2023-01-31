@@ -106,8 +106,8 @@ export const showAds = async () => {
           method: 'getAd',
         }
       ]
-    })
-    console.log(response);
+    }) as {contentId: string};
+    console.log(response.contentId);
   })
   .catch(err => {
     console.log(err);
