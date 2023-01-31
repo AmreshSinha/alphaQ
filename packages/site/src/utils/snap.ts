@@ -76,6 +76,9 @@ export const sendHello = async () => {
       defaultSnapOrigin,
       {
         method: 'hello',
+        headers: {
+          "Accept": "application/json"
+        }
       },
     ],
   });
@@ -95,8 +98,16 @@ export const showAds = async () => {
       },
     ],
   })
-  .then(res => {
-    console.log(res);
+  .then(async res => {
+    const response = await window.ethereum.request({
+      method: 'wallet_invokeSnap',
+      params: [defaultSnapOrigin,
+        {
+          method: 'getAd',
+        }
+      ]
+    })
+    console.log(response);
   })
   .catch(err => {
     console.log(err);
