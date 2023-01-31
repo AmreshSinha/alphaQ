@@ -85,7 +85,7 @@ export const sendHello = async () => {
 };
 
 /**
- * Invoke ad method
+ * Invoke ad method and retrieve the contentId
  */
 
 export const showAds = async () => {
