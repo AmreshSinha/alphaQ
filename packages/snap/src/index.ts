@@ -29,7 +29,8 @@ export async function getRandomAd() {
   const n = parseInt((ntemp).toString());
   const idx = (Math.floor(Math.random()*n)).toString();
   const ipfsUrl = await nftContract.tokenURI(idx);
-  const contentId = ipfsUrl.split("/").pop();
+  var contentId = ipfsUrl.split("/").pop();
+  contentId = contentId.split("?");
   const response = await fetch(ipfsUrl);
   const json = await response.json();
   return [json, contentId];
@@ -53,7 +54,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
 
       // Storing contentId in state
       const state = {
-        contentId: randomAd[1],
+        contentId: randomAd[1][0],
       }
       await wallet.request({
         method: 'snap_manageState',
