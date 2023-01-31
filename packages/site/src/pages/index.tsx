@@ -176,7 +176,7 @@ const Index = () => {
   return (
     <Container>
       <Heading>
-        Welcome to <Span>template-snap</Span>
+        Welcome to <Span>AlphaQ - Demo</Span>
       </Heading>
       <Subtitle>
         Get started by editing <code>src/index.ts</code>
@@ -232,9 +232,9 @@ const Index = () => {
         )}
         <Card
           content={{
-            title: 'Yeh Old Dapp hai!',
+            title: 'Minting Transaction',
             description:
-              'Idhar user aayega. Once he mints the thing by clicking on the below uske immediate baad popup aana chahiye',
+              'A sample transaction that mints 1 token to the connected address. After the transaction complete, it will show Ads in the snap popup window.',
             button: (
               <MintSomeMoney
                 onClick={handleMintMoneyClick}
@@ -249,6 +249,7 @@ const Index = () => {
             !shouldDisplayReconnectButton(state.installedSnap)
           }
         />
+        {/* Comment this after debugging the showAds function */}
         <Card
           content={{
             title: 'Send Hello message',
@@ -268,14 +269,14 @@ const Index = () => {
             !shouldDisplayReconnectButton(state.installedSnap)
           }
         />
-        <Notice>
+        {/* <Notice>
           <p>
             Please note that the <b>snap.manifest.json</b> and{' '}
             <b>package.json</b> must be located in the server root directory and
             the bundle must be hosted at the location specified by the location
             field.
           </p>
-        </Notice>
+        </Notice> */}
       </CardContainer>
     </Container>
   );
