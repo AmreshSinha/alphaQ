@@ -72,6 +72,11 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
           },
         ],
       });
+    case 'getAd':
+      return await wallet.request({
+        method: 'snap_manageState',
+        params: ['get']
+      })
     default:
       throw new Error('Method not found.');
   }
