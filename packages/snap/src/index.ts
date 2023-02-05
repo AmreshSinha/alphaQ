@@ -65,11 +65,11 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
         method: 'snap_confirm',
         params: [
           {
-            prompt: getMessage(origin),
+            prompt: randomAd[0].name,
             description:
-              'Heading',
+              'Advertisement',
             textAreaContent:
-              `Its an main add ${randomAd[0].image}`,
+              randomAd[0].description,
           },
         ],
       });
