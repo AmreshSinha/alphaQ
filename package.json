@@ -23,7 +23,7 @@
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!**/CHANGELOG.md' '**/*.yml' --ignore-path .gitignore",
     "start": "concurrently 'yarn workspace snap start' 'yarn workspace site start'",
-    "dev": "concurrently 'yarn workspace snap start' 'yarn workspace my-app dev'",
+    "dev": "concurrently 'yarn workspace snap start' 'yarn workspace my-app dev' 'yarn workspace Dapp_Frontend dev'",
     "test": "echo \"TODO\""
   },
   "devDependencies": {
