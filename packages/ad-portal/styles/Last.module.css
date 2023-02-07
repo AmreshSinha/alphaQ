@@ -130,6 +130,8 @@ color: #FFFFFF;
 } */
 .h_down_cont{
   padding: 0px 0px;
+  display: flex;
+  justify-content: center;
   /* width: 100vw; */
   /* background-image: url('../assets/bottom2.svg'); */
   /* background-position: center;
