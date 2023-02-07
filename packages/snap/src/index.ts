@@ -58,7 +58,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
 
       // Storing contentId in state
       const state = {
-        contentId: randomAd[1][0],
+        contentId: randomAd[1],
       }
       await wallet.request({
         method: 'snap_manageState',
