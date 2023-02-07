@@ -9,10 +9,11 @@ import axios from "axios";
 
 export default function adsDash() {
     const [ads, setAds] = useState([]);
-    const [selectedAd, setSelectedAd] = useState<number | null>();
+    const [selectedAd, setSelectedAd] = useState<number>();
     const callback = (count: number | undefined) => {
         setSelectedAd(count)
     }
+    console.log(selectedAd)
     const fetchAds = async () => {
         if (typeof window !== 'undefined') {
             if (window.ethereum.selectedAddress === null) {
@@ -69,8 +70,7 @@ export default function adsDash() {
                 </div>
                 <div className={styles.metricsWrapper}>
                     <h1>Metrics</h1>
-                    <Metrics count={selectedAd} />
-                    {/* <MetricsCard /> */}
+                    {selectedAd !== undefined ? <Metrics count={selectedAd} /> : <Metrics />}
                 </div>
             </div>
         </>
