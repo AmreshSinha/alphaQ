@@ -34,7 +34,7 @@ export default function Home({ fetchedAd }: {fetchedAd: {name: string, descripti
         <div className={style.h_try_cont}>
 
           <div className={styles.h_try_block}>
-            <div className={styles.box}><img src={Img.src} alt="" /></div>
+            <div className={styles.box}><img src={fetchedAd.image} alt="" /></div>
             <div className={styles.h_try_heading}>{fetchedAd.name}</div>
             <div className={styles.h_try_content}>{fetchedAd.description}</div>
             <div className={styles.h_try_button} onClick={redirectToAdSite}><span>{fetchedAd.attributes[0]!.value}</span></div>

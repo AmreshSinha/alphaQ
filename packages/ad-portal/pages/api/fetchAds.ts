@@ -15,6 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 counts: true,
             }
         })
+        console.log(ads)
         if (ads!.counts.length === 0) {
             res.status(404).json({ message: 'No ads found', error: true })
         }

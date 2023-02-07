@@ -148,6 +148,12 @@ top: -10px;
 margin-bottom: 10px;
 
 }
+
+.box img {
+  width: 220.5px;
+  height: 220.5px;
+}
+
 .why_cont{
   display: flex;
   gap: 8px;
