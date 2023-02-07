@@ -4,6 +4,7 @@ build/
 coverage/
 .cache/
 public/
+!packages/Dapp_Frontend/public
 
 # Logs
 logs
