@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from '@/styles/metrics.module.scss';
+import EyeSVG from '@/assets/Eye.svg';
 
-export default function Metrics() {
+export default function Metrics({ count }: {count: number}) {
     const [metrics, setMetrics] = useState();
     return (
         <div className={styles.metric_wrapper}>
