@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             returnAds.push({ad, adName, adImage})
         };
         // console.log(returnAds)
-        res.status(200).json({ads: returnAds, error: false})
+        res.status(200).json({ads: returnAds, message: 'Success', error: false})
     } else {
         res.status(405).json({ message: 'Method not allowed', error: true })
     }
