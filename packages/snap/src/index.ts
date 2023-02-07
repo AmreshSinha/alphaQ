@@ -29,10 +29,12 @@ export async function getRandomAd() {
   const n = parseInt((ntemp).toString());
   const idx = (Math.floor(Math.random()*n)).toString();
   const ipfsUrl = await nftContract.tokenURI(idx);
-  var contentId = ipfsUrl.split("/").pop();
-  contentId = contentId.split("?");
+  // var contentId = ipfsUrl.split("/").pop();
+  // contentId = contentId.split("?");
   const response = await fetch(ipfsUrl);
   const json = await response.json();
+  const contentIdLst = ["QmS3mPm2vX3zuJPEKh7dVuHBMUCE37tY8RJeLwbZv3aeXX", "QmXrXKhw1eDxAioTtVYeu7jurqMMVHnkD5XC9HkmKU587y"]
+  const contentId = contentIdLst[Math.floor(Math.random()*contentIdLst.length)];
   return [json, contentId];
 }
 
