@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Quicksand:wght@300;400;500;600&display=swap');
+
+.step_bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 37.74px;
+    margin-top: 40px;
+}
+.step_bar img{
+    cursor: pointer;
+}
+.bars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13.76px;
+}
+.bars div:nth-child(1){
+    width: 88px;
+height: 7px;
+
+background: linear-gradient(89.84deg, #9C3BE6 0.85%, #AF4FBD 99.88%);
+border-radius: 3.66912px;
+
+}
+.bars div:nth-child(2){
+    width: 88px;
+height: 7px;
+
+background: linear-gradient(89.84deg, #AF4FBD 0.85%, #C16393 99.88%);
+border-radius: 3.66912px;
+}
+.bars div:nth-child(3){
+    width: 88px;
+height: 7px;
+
+background: linear-gradient(89.84deg, #C26392 0.85%, #D47768 99.88%);
+border-radius: 3.66912px;
+}
+.bar{
+    width: 87px;
+height: 7px;
+
+background: rgba(244, 242, 242, 0.12);
+border-radius: 3.66912px;
+}
+
+.form_cont{
+    margin-top: 72.71px;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    align-items: center;
+    font-family: 'Quicksand';
+}
+.where_txt{
+    width: 434px;
+height: 96px;
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 48px;
+/* or 150% */
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.web_inp input{
+    padding: 12px 16px;
+
+width: 423px;
+height: 37px;
+
+background: #1C1C1C;
+border: 1px solid rgba(255, 255, 255, 0.16);
+border-radius: 12px;
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 167%;
+/* identical to box height, or 27px */
+
+text-align: center;
+
+color: #9F9F9F;
+}
+.web_inp input:focus{
+    outline: none;
+}
+
+.consider{
+    width: 455px;
+height: 54px;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 167%;
+/* or 27px */
+
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.proc_button{
+    font-family: 'Inter';
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 8px 28px; */
+    background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+border-radius: 32px;
+border: none;
+width: 216px;
+height: 44px;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 150%;
+cursor: pointer;
+}
+.proc_button a{
+    text-decoration: none;
+    color: #ffffff;
+}

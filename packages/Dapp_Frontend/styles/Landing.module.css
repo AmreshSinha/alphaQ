@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Quicksand:wght@300;400;500;600&display=swap');
+
+.cont{
+    margin-top: 77px;
+    display: flex;
+    gap: 102px;
+    justify-content: center;
+}
+.cont1{
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Quicksand';
+    width: 425px;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    justify-content: center;
+}
+.down{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+.grow{
+    font-style: normal;
+font-weight: 600;
+font-size: 49px;
+line-height: 62px;
+
+}
+.desc{
+    font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+}
+.conn_button{
+    padding: 10.4718px 36.6512px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 155px;
+height: 30.94px;
+
+/* metaflask */
+
+background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+border-radius: 41.887px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20.9435px;
+line-height: 150%;
+cursor: pointer;
+}
+.conn_button:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+}
+.text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+}
+
+.cont2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont2 img{
+    width: 500px;
+}

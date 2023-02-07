@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Quicksand:wght@300;400;500;600&display=swap');
+
+.form_cont{
+    width: 470.28px;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.step_bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 37.74px;
+    margin-top: 38px;
+}
+.step_bar img{
+    cursor: pointer;
+}
+.bars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13.76px;
+}
+.bars div:nth-child(1){
+    width: 88px;
+height: 7px;
+
+background: linear-gradient(89.84deg, #9C3BE6 0.85%, #AF4FBD 99.88%);
+border-radius: 3.66912px;
+
+}
+.bar{
+    width: 87px;
+height: 7px;
+
+background: rgba(244, 242, 242, 0.12);
+border-radius: 3.66912px;
+}
+.create_name{
+    font-family: 'Quicksand';
+    font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height, or 150% */
+
+
+color: #FFFFFF;
+}
+.logo_cont{
+    color: #FFFFFF;
+    width: 470px;
+    display: flex;
+    gap: 26px;
+}
+.logo_text{
+    font-family: 'Quicksand';
+}
+.logo_left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+.logo_right{
+    display: flex;
+    align-items: flex-end;
+}
+.logo_right img{
+    cursor: pointer;
+}
+.logo{
+    height: 118px;
+width: 118px;
+border-radius: 9.67164134979248px;
+
+background: #1C1C1C 100%;
+border: 1px dashed #ffffff;
+}
+
+.name_cont,.desc_cont{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    color: #FFFFFF;
+    font-family: 'Quicksand';
+    /* width: 470px; */
+}
+.name{
+    font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+}
+.inp{
+    height: 61px;
+width: 438px;
+border: 1px solid #FFFFFF29;
+border-radius: 12px;
+background-color: #1C1C1C;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 167%;
+font-family: 'Quicksand';
+padding: 0px 16px;
+/* identical to box height, or 27px */
+
+
+color: #9F9F9F;
+}
+.inp:focus, .inp2:focus{
+    outline: none;
+}
+
+.desc{
+    font-family: 'Quicksand';
+    font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.inp2{
+    padding: 12px 16px;
+width: 438px;
+height: 77px;
+background: #1C1C1C;
+border: 1px solid rgba(255, 255, 255, 0.16);
+border-radius: 12px;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 77px;
+/* or 23px */
+font-family: 'Quicksand';
+
+color: #9F9F9F;
+vertical-align: top;
+}
+
+.proc_button{
+    font-family: 'Inter';
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 8px 28px; */
+    background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+border-radius: 32px;
+width: 166px;
+height: 40px;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 150%;
+cursor: pointer;
+}
+.proc_button a{
+    text-decoration: none;
+    color: #ffffff;
+}

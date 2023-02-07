@@ -1,0 +1,53 @@
+.h_about {
+    color: #FFFFFF;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    cursor: pointer;
+    padding: 7px 18px;
+    border: 1px solid transparent;
+/* background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%); */
+background:
+    linear-gradient(#1e1e1e 0 0) padding-box, 
+    linear-gradient(267.95deg, #E78B3A 1%, #9B3AE7 98.56%) border-box;
+    border-radius: 41.88704299926758px;
+    z-index: 5;
+    outline: none;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    //   background-color: #0cf;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+      transition: all .3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      color: #fff;
+    //   outline: 1px solid white;
+
+      &:before {
+        width: 100%;
+      }
+    }
+  }

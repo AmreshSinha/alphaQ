@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Quicksand:wght@300;400;600&display=swap');
+.home{
+  background-color: #121212;
+  width: 100vw;
+  height: 100%;
+}
+.h_ad_body,.h_ad_title{
+  color: #FFFFFF;
+  font-family: 'Quicksand';
+}
+.h_ad_title{
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 56px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.h_ad_body{
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 402px;
+}
+.h_ad_content{
+  display: flex;
+  width: 1024px;
+  margin: 0px auto;
+  margin-top: 35px;
+  gap: 20px;
+}
+.h_ad_text{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+  gap: 15px;
+}
+.h_try_block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.h_try_cont{
+  width: 994px;
+  height: 363px;
+  margin: 0 auto;
+  box-shadow: 22px 4px 40px rgba(231, 139, 58, 0.12), -27px 0px 40px rgba(195, 98, 255, 0.11);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#1e1e1e 0 0) padding-box, 
+    linear-gradient(267.95deg, #E78B3A 1%, #9B3AE7 98.56%) border-box;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center; 
+  
+  font-family: 'Quicksand';
+}
+
+.h_try_heading{
+  font-size: 49px;
+  font-weight: 600;
+  line-height: 62px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 750px;
+  color: #FFFFFF;
+
+}
+.h_try_content{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 540px;
+  color: #FFFFFF;
+
+}
+.h_down_svg{
+  display: flex;
+  width: 100vh;
+  justify-content: flex-end;
+}
+.h_try_button{
+  margin-top: 2%;
+  height: 51.943519592285156px;
+  width: 231.3023223876953px;
+  border-radius: 41.88704299926758px;
+  padding: 10px 37px 10px 37px;
+  background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+  font-family: 'Inter';
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.h_try_button:hover{
+  /* mix-blend-mode:color-dodge; */
+  outline: 1px solid white;
+}
+.h_down_svg{
+  width: 98%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.h_down_cont{
+  padding: 40px 0px;
+  /* height: 100vh; */
+  width: 100vw;
+  background-image: url('../assets/bottomImg.svg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

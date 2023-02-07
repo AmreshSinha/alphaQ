@@ -1,0 +1,30 @@
+.card {
+    font-family: 'QuickSand', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 2rem;
+    margin: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    background: #1C1C1C;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
+    h3 {
+        font-size: 24px;
+    }
+}
+
+.icon {
+    max-width: 100px;
+    max-height: 100px;
+    img {
+        border-radius: 5px;
+        width: 100px;
+        height: 100px;
+    }
+}
+

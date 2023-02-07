@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Quicksand:wght@300;400;600&display=swap');
+
+
+.success{
+    background-color: #121212;
+}
+.donut_cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-70px);
+}
+.donut{
+    background-image: url('../assets/donut.svg');
+    width: 730px;
+    height: 579px;
+}
+.success_cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    color: #FFFFFF;
+    transform: translateY(-50px);
+}
+.text{
+    font-family: 'Quicksand';
+    width: 745px;
+    font-weight: 400;
+    text-align: center;
+}
+.profile{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: 600; */
+    height: 30.943519592285156px;
+    width: 132.0023223876953px;
+    border-radius: 41.88704299926758px;
+    padding: 10.4718px 36.6512px;
+    background: linear-gradient(89.84deg, #9C3BE6 0.85%, #E78B3C 99.88%);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20.9435px;
+    line-height: 150%;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.profile:hover{
+    box-shadow: 22px 4px 40px rgba(231, 139, 58, 0.12), -27px 0px 40px rgba(195, 98, 255, 0.11);
+}
+.check{
+    font-family: 'Quicksand';
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}

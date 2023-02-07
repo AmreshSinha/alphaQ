@@ -1,0 +1,67 @@
+.infoWrapper {
+    font-family: 'QuickSand', sans-serif;
+    color: #fff;
+    padding: 40px 134px;
+    display: flex;
+    flex-direction: row;
+}
+
+.infoCard {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex: 1 1 0px;
+}
+
+.metamaskLogo {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    padding: 1rem;
+    img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1 {
+        margin: 0;
+        font-weight: 600;
+    }
+    p {
+        margin: 0;
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+}
+
+.fillerCard {
+    flex: 1 1 0px;
+}
+
+.hrLine {
+    border: 1px solid #303030;
+    margin: 1.5rem 0;
+}
+
+.adsWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    font-family: 'QuickSand', sans-serif;
+    color: #fff;
+    margin: 0 134px;
+}
+
+.adsList {
+    flex: 1 1 0px;
+}
+
+.metricsWrapper {
+    flex: 1 1 0px;
+}
