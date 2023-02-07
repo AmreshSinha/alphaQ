@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
@@ -10,7 +10,7 @@ datasource db {
 
 model Count {
   id              String  @id @default(auto()) @map("_id") @db.ObjectId
-  contentId       String
+  contentId       String  @unique
   count           Int
   purchasedViews  Int
   status          Boolean

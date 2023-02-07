@@ -1,5 +1,9 @@
 import { defaultSnapOrigin } from '../config';
 import { GetSnapsResponse, Snap } from '../types';
+import axios from 'axios';
+// import { PrismaClient } from '@prisma/client'
+
+// const prisma = new PrismaClient()
 
 /**
  * Get the installed snaps in MetaMask.
@@ -109,6 +113,20 @@ export const showAds = async () => {
         ]
       }) as {contentId: string};
       // console.log(response.contentId);
+      // const countUpdate = await prisma.count.update({
+      //   where: {
+      //     contentId: response.contentId
+      //   },
+      //   data: {
+      //     count: { increment: 1 }
+      //   }
+      // })
+      // console.log('Count updated: ', countUpdate)
+      await axios.get('http://localhost:3000/api/updateCount', {
+        params: {
+          contentId: response.contentId
+        }
+      })
       window.open(`http://localhost:3000/ad/${response.contentId}`, '_blank')
     }
   })
