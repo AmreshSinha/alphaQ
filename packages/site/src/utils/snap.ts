@@ -99,15 +99,18 @@ export const showAds = async () => {
     ],
   })
   .then(async res => {
-    const response = await window.ethereum.request({
-      method: 'wallet_invokeSnap',
-      params: [defaultSnapOrigin,
-        {
-          method: 'getAd',
-        }
-      ]
-    }) as {contentId: string};
-    console.log(response.contentId);
+    if (res) {
+      const response = await window.ethereum.request({
+        method: 'wallet_invokeSnap',
+        params: [defaultSnapOrigin,
+          {
+            method: 'getAd',
+          }
+        ]
+      }) as {contentId: string};
+      // console.log(response.contentId);
+      window.open(`http://localhost:3000/ad/${response.contentId}`, '_blank')
+    }
   })
   .catch(err => {
     console.log(err);
