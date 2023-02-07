@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Count {
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  contentId       String
+  count           Int
+  purchasedViews  Int
+  status          Boolean
+  transactionHash String
+  hashId          String
+  hash            Hash    @relation(fields: [hashId], references: [ethAddress])
+}
+
+model Hash {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  ethAddress String  @unique
+  counts     Count[]
+}

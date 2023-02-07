@@ -18163,6 +18163,7 @@ __metadata:
     "@metamask/eslint-config-nodejs": ^10.0.0
     "@metamask/eslint-config-typescript": ^10.0.0
     "@metamask/providers": ^9.0.0
+    "@prisma/client": ^4.9.0
     "@svgr/webpack": ^6.4.0
     "@testing-library/dom": ^8.17.1
     "@testing-library/jest-dom": ^5.16.4
@@ -18189,6 +18190,7 @@ __metadata:
     gatsby-plugin-svgr: ^3.0.0-beta.0
     prettier: ^2.2.1
     prettier-plugin-packagejson: ^2.2.18
+    prisma: ^4.9.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-is: ^18.2.0
