@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let returnAds: unknown[] = []
         for (const ad of ads!.counts) {
         // ads!.counts.forEach(ad => {
-            const pinataRes = await axios.get(`https://gateway.pinata.cloud/ipfs/${ad.contentId}`)
+            const pinataRes = await axios.get(`https://ipfs.io/ipfs/${ad.contentId}`)
             const adName = pinataRes.data.name
             const adImage = pinataRes.data.image
             returnAds.push({ad, adName, adImage})
